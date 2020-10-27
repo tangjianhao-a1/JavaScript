@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //浅拷贝用Object.assig实现，而深拷贝可以拷贝多层数据   简单数据类型和复杂数据类型
+        var obj = {
+            id: 1,
+            name: '唐建豪',
+            msg: {
+                age: 26
+            },
+            color: ['red', 'green']
+        };
+        var o = {};
+        //封装函数   
+        function deepCopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                //判断我们的属性值属于哪种数据类型  
+                //1.获取属性值  oldobj[k];  
+                var item = oldobj[k];
+                //2.判断这个值是否是数组     
+                if (item instanceof Array) {
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item)
+                } else if (item instanceof Object) {
+                    //3.判断这个值是否是对象  
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item)
+                } else {
+                    //4.属于简单数据类型  
+                    newobj[k] = item;
+                }
+
+            }
+        }
+        deepCopy(o, obj);
+        console.log(o);  
+        var arr = [];  
+        //数组也是对象先写数组把数组剔除
+        console.log(arr instanceof Object);
+    </script>
+</body>
+
+</html>
