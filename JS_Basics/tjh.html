@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>XMLHttpRequest 对象</h1>
+
+<button type="button" onclick="loadDoc()">请求数据</button>
+
+<p id="demo"></p>
+
+<script>
+    //list [{username: "张三", addr: "北京"}, {username: "李四", addr: "北京"}],
+function test1(list) {    
+    var newArr = [];   
+    for(var i = 0; i < list.length; i++) {
+        var itm = list[i];   
+        var pai = itm.username;   
+        newArr.push(pai);
+    }
+    return newArr
+}
+var re = test1( [{username: "张三", addr: "北京"}, {username: "李四", addr: "北京"}]);   
+console.log(re);
+function test2(str) {   
+    var txt = str.replace(/.pdf/i , '.html')
+    return txt
+};  
+var re2 = test2("语文课本.pdf")
+console.log(re2);
+// obj  {"a": 1, "b": 2} 
+function test3(obj) {
+  var newArr = [];  
+  for(var i in obj) {
+      var newobj = {};   
+      newobj[i] = obj[i];  
+      newArr.push(newobj);
+  }
+  return newArr
+};     
+var re3 = test3( {"a": 1, "b": 2} );   
+console.log(re3);  
+
+//obj  {"a": 1, "b": 2}  {"c": 3, "d": 4}    
+function test4(obj1,obj2) {
+ var obj = Object.assign(obj1,obj2);  
+ return obj
+};     
+var re4 = test4( {"a": 1, "b": 2} , {"c": 3, "d": 4}    )   
+console.log(re4);
+
+</script>
+ 
+</body>
+</html>
