@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //扩展运算符可以将数组拆分成以逗号分隔的参数序列   
-        let art1 = ['张三', '李四', '王二'];     
-        let art2 = [1, 2, 3, 4];  
+        let art1 = ['张三', '李四', '王二'];
+        let art2 = [1, 2, 3, 4];
         console.log(...art1);
-        console.log(...art2);    
+        console.log(...art2);
         //合并数组方式一
-        let art3 = [...art1, ...art2];   
-        console.log('art3',art3);  
+        let art3 = [...art1, ...art2];
+        console.log('art3', art3);
         //合并数组方式二  
-          art1.push(...art2)
-        console.log('art1',art1);
+        art1.push(...art2)
+        console.log('art1', art1);
     </script>
 </body>
+
 </html>
