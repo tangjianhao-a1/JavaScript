@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            id: 1,  
+            name: '张三',
+            age: 18,  
+            sex: '男'
+        };   
+        //返回一个由属性名组成的数组   
+        const arr = Object.keys(obj);  
+        console.log('arr',arr);     
+        arr.forEach(function(value) {
+            console.log(value);
+        })  
+        console.log('------------------------------');
+        for(k in obj) {
+            let item = k;   
+            console.log(k);
+        }   
+        console.log('--------------------------');      
+        //Object.defineProperty()定义新属性或修改原有的属性8
+        Object.defineProperty(obj, 'aihao', {
+            value: '跑步'
+        });   
+        console.log(obj);  
+        Object.defineProperty(obj, 'id', {
+            writable: false,
+        });     
+        obj.id = 2;  
+        console.log(obj);
+
+    </script>
+</body>
+</html>

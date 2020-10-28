@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //...代表接收所有实参
+        //  const sum = (...args) => {  
+        //声明个变量，默认值是0
+        // let total = 0;     
+        //使用forEach循环数组，使用回调函数（箭头函数）的方式
+        //args.forEach((数组的每个元素，索引号，数组本身) => {函数体})
+        // return ....
+        //}    
+        const sum = (...arr) => {
+            let total = 0;
+            arr.forEach(item => total += item);
+            return total;
+        };
+        console.log(sum(10, 20,), sum(10, 20, 30, 40));
+
+    </script>
+</body>
+
+</html>

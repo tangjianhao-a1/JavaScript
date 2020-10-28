@@ -9,26 +9,10 @@
 
 <body>
     <script>
-        class Star {
-            constructor(uname, age, sex) {
-                this.uname = uname;
-                this.age = age;
-                this.sex = sex;
-            }
-            sing(song) {
-                var cg = this.uname + song
-                console.log(cg);
-            }
-        }
-        var ldh = new Star('刘德华', 18, '男');
-        var zxy = new Star('张学友', 25, '男');
-        var myf = new Star('梅艳芳', 23, '女');
-        console.log(ldh);
-        console.log(zxy);
-        console.log(myf);
-        ldh.sing('冰雨');
-        zxy.sing('忘情水');
-        myf.sing('女人花');
+      let arr = [1, 2, 3, 4, 5];   
+      let [a, ...b] = arr;  
+      console.log(a);  
+      console.log(b);
     </script>
 </body>
 

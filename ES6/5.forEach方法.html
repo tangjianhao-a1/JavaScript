@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //forEach迭代遍历数组     
+        const arr = [1, 2, 3];
+        let newArr = 0;
+        arr.forEach(function (value, index, array) {
+            console.log('每个数组元素' + value);
+            console.log('每个元素索引号' + index);
+            console.log('数组本身' + array);
+            newArr += value;
+            //console.log(eer); //报错/
+            let eer = 'wo';
+            console.log(eer); 
+        });
+        //  console.log(eer);  报错
+        console.log(newArr);
+        var cct = [1, 2, 3, 4];
+        var rer = cct;   
+
+    </script>
+</body>
+
+</html>

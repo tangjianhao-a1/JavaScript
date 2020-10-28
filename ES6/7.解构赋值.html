@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //数组解构   
+        let ary = [1, 2, 3, 4];
+        let [a, b, c, d] = ary;
+        console.log('a', a);
+        console.log('b', b);
+        console.log('c', c);
+        console.log('d', d);
+        //对象结构使用变量名字匹配对象属性
+        //匹配成功将对象属性的值赋值给变量   
+        console.log('------------------------------------------------------------------');
+        let person = { name: 'tjh', age: 30, sex: '男' };
+        let { name, age, sex } = person;
+        console.log('name', name);
+        console.log('age', age);
+        console.log('sex', sex);
+        console.log('----------------------------------------------------');
+        let obj = { name: 'tjh', age: 30, sex: '男'};   
+        let{ name: myName, age: myAge, sex: mySex} = obj;   
+        console.log(myName, myAge, mySex);
+
+
+    </script>
+</body>
+
+</html>
