@@ -9,10 +9,12 @@
 
 <body>
     <script>
-      let arr = [1, 2, 3, 4, 5];   
-      let [a, ...d] = arr;  
-      console.log(a);  
-      console.log(d);
+    const sum = (...art) => {
+      let newArr = 0;  
+      art.forEach(item => newArr += item);
+      return newArr;
+    }  
+    console.log(sum(1, 2, 3, 4, 5));
     </script>
 </body>
 
