@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.find()方法查找数组当中满足条件的第一个值  
+        const arr = [{
+            id: 1,
+            name: '张三'
+        }, {
+            id: 2,
+            name: '李四'
+        }];
+        let target = arr.find(item => item.id == 2);
+        console.log(target);
+        //find返回的是对象，filter返回的是数组；   
+        //2.findIndex()用于找出第一个符合条件的数组成员的位置，如果没有找到返回-1；返回的是索引号  
+        let index = arr.findIndex(item => item.id > 1);
+        console.log(index);
+        //3.includes()表示某个数组是否包含给定的值，返回布尔值。   
+        let result = arr.includes(arr[1]);
+        console.log(result);
+
+    </script>
+</body>
+
+</html>

@@ -18,9 +18,10 @@
         //返回一个由属性名组成的数组   
         const arr = Object.keys(obj);
         console.log('arr', arr);
-        arr.forEach(function (value) {
-            console.log(value);
-        })
+        //arr.forEach(function(value) {
+        //console.log(value);
+        //})    
+        arr.forEach(item => console.log(item))
         console.log('------------------------------');
         for (k in obj) {
             let item = k;
