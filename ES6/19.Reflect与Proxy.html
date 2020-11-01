@@ -16,7 +16,7 @@
 
         //Porxy对象由两个部分组成：target,handler.在通过Proxy构造函数生成实例对象时，  
         //需要提供这两个参数，target即目标对象，handler是一个对象，声明了代理target的指定行为。  
-        let target = {
+       /*  let target = {
             name: 'tom',
             age: 24
         }
@@ -45,8 +45,24 @@
         //setting name  
         //'TOM'  
         //再次调用get,此时已经存在name属性   
-        proxyEpt.name;
-      
+        proxyEpt.name; */
+        let exam = {
+            name: 'tom',
+            age: 24
+        }
+        let handler = {
+            get: function(target,key) {
+                console.log('geting' + key);  
+                return Reflect.get(target,key)
+            },
+            set: function(target,key,value) {
+                console.log('setting' + key + 'to' + value)
+                Reflect.set(target,key,value);
+            }
+        }
+        let proxy = new Proxy(exam, handler)  
+        proxy.name = 'Jerry'  
+        proxy.name 
 
 
 

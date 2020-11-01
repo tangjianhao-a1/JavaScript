@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>  
+      //1.遍历数组
+        let array = ['张三' , '李四', '王五'];  
+        for( let item of array) {
+            console.log(item);
+        }  
+        
+        //2.遍历字符串  
+        let string = '改革春分吹满地';   
+        for(const c of string) {
+            console.log(c);
+        }  
+
+        //3遍历map   
+        const map = new Map();  
+        map.set(0, '小明');  
+        map.set(1, '小狼');  
+        for(let item of map) {
+            console.log(item);
+        }  
+        //4.遍历set  
+        const set = new Set();  
+        set.add('狼狗');  
+        set.add('土狗');  
+        for(let item of set) {
+            console.log(item);
+        }  
+        //for...of是ES6新引进的循环，用于代替for...in和forEach();
+
+    </script>
+</body>
+</html>
