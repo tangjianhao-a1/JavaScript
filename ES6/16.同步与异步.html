@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //同步API从上到下依次执行，前面代码会阻塞后面的代码执行
+        //for (var i = 0; i < 1000000; i++) {
+        //console.log(i);
+        // }  
+        //console.log('循环后面的代码');   
+        console.log('代码开始执行');
+        setTimeout(() => {
+            console.log('两秒后执行的代码');
+        }, 2000);
+        setTimeout(() => {
+            console.log('0秒后执行的代码');
+        }, 0);
+        console.log('代码执行结束');
+        let hello = 123;
+        console.log(hell\u{6F});
+    </script>
+</body>
+
+</html>

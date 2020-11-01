@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //var myMap = new Map();  
+        //myMap.set(0, 'zero');   
+        //myMap.set(1, 'one');  
+        //使用for of遍历  
+        //for(var [key,value] of myMap) {
+        //  console.log(key + '=' + value);
+        //}  
+        //for (var [key,value] of myMap.entries()) {
+        //  console.log(key + '=' + value);
+        //}  
+        //使用forEach遍历   
+        var myMap = new Map();
+        myMap.set(0, 'zero');
+        myMap.set(1, 'one');
+        myMap.forEach((value, key) => {
+            console.log(key + '=' + value);
+        })
+        //map对象操作   map与Array的转换   
+        var kvArray = [['key1', 'value1'], ['key2', 'value2']];
+        //Map构造函数可以将一个二维键值对数组转换成一个Map对象    
+        var myMap1 = new Map(kvArray);
+        console.log(myMap);
+        //使用Array.from函数可以将一个Map对象转换成一个二维键值对数组   
+        var outArray = Array.from(myMap)
+        console.log(outArray);
+        var tjh = new Map(outArray);
+        console.log(tjh);
+        //合并两个Map对象时，如果有重复的键值，则会覆盖前面的
+        var first = new Map([[1, 'one'], [2, 'two'], [3, 'three'],]);
+        var last = new Map([[1, 'uno'], [2, 'dos']]);
+        var merged = new Map([...first, ...last]);
+        console.log(merged);
+    </script>
+</body>
+
+</html>

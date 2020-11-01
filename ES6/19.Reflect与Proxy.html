@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Proxy与Reflect是ES6为了操作对象引入的API。  
+        //proxy可以对目标对象的读取，函数调用等操作拦截，它不直接操作对象  
+        //而是向代理模式，通过对象的代理对象进行操作。   
+        //Reflect可以获取目标对象的行为    
+
+        //Porxy对象由两个部分组成：target,handler.在通过Proxy构造函数生成实例对象时，  
+        //需要提供这两个参数，target即目标对象，handler是一个对象，声明了代理target的指定行为。  
+        let target = {
+            name: 'tom',
+            age: 24
+        }
+        let handler = {
+            get: function (target, key) {
+                console.log('geting' + key);
+                return target[key];//不是target.key
+            },
+            set: function (target, key, value) {
+                console.log('setting' + key);
+                target[key] = value;
+
+            }
+        }
+        let proxy = new Proxy(target, handler);
+        proxy.name;
+        proxy.age = 5;
+
+        //target 可以为空对象   
+        let targetEpt = {};
+        let proxyEpt = new Proxy(targetEpt, handler)
+        //调用get方法，此时目标对象为空，没有name属性   
+        proxyEpt.name //getting name  
+        //调用set方法，向目标对象中添加了name属性  
+        proxyEpt.name = 'TOM';
+        //setting name  
+        //'TOM'  
+        //再次调用get,此时已经存在name属性   
+        proxyEpt.name;
+      
+
+
+
+    </script>
+</body>
+
+</html>

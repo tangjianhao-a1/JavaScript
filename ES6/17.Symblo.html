@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //新增的数据类型Symbol,表示独一无二的值，最大的用法就是用来定义对象的唯一属性名。
+        let sy1 = Symbol('kk')
+        console.log(sy1);
+        console.log(typeof (sy1));
+        //相同的Symbol()返回的值不相等     
+        let sy2 = Symbol('kk');
+        console.log(sy1 === sy2);
+
+        let sy = Symbol('key1');
+        //写法一  
+        //let syObject = {};   
+        //syObject[sy] ='kk';   
+        //console.log(syObject);  
+        //写法二  
+        let syObject = { [sy]: 'kk' };
+        console.log(syObject);
+        //sybol作为属性名时不能使用运算符.  要用方括号。因为.运算符后面是祖父串  
+        //取到的是字符串sy属性，而不是Symbol值sy属性   
+        let syObject = {};
+        syObject[sy] = 'kk';
+        syObject[sy]; //'kk'  
+        syObject.sy //undefined  
+
+    </script>
+</body>
+
+</html>

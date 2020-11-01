@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //异步  
+        //function get () {
+        // setTimeout(function () {
+        //return {
+        //msg: 'hello'
+        // }
+        // },5000)
+        // }  
+        //const msg = get();  
+        // console.log(msg);  // undefined   在异步API里无法通过返回值的方式拿到异步API的执行结果的   
+        //可以通过回调函数的方式拿到  
+        function get(back) {
+            setTimeout(function () {
+                back({
+                    msg: 'hello'
+                })
+            }, 2000)
+        }
+
+        get(data => console.log(data));
+
+
+    </script>
+</body>
+
+</html>
