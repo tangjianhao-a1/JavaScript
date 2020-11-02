@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.Promise出现的目的是解决异步编程中回调地狱的问题。它本身是一个构造函数     
+        //2.先使用new运算符创造promise构造函数的实例对象，需要为构造函数传递个匿名函数    
+        //3.匿名函数里需要传递两个参数resolve，reject，promise是想把异步API的代码放入这个匿名函数里  
+        //4.定时器执行完毕之后会有个结果出来，promise希望把结果拿到外面处理  
+        //5.当异步API有结果返回的时候就调用resolve这个函数并通过参数的形式传出去，  
+        //6.如果执行失败就通过reject将失败信息传递到promise外面去
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (true) {
+                    resolve({ name: '张三' })
+                } else {
+                    reject('失败了')
+                }
+            }, 30000);
+        });
+        //promise下面的then方法里面传递个函数，当异步API执行完成后要调用resolve({name: '张三'})这个参数  
+        //实际上就是执行zhen里面的这个回调函数
+        promise.then(re => console.log(re));
+        promise.catch(error => console.log(error));
+
+        //resolve和reject只有一个会被调用
+        const p1 = new Promise((resolve, reject) => {
+            resolve('success1');
+            resolve('success2');
+        });
+        const p2 = new Promise((resolve, reject) => {
+            resolve('success3');
+            reject('reject')
+        })
+
+        p1.then(value => console.log(value));
+        p2.then(value => console.log(value));
+        console.log('同步API');
+
+        const p = new Promise((resolve, reject) => {
+            resolve(1);
+        }).then((valve) => {
+            console.log(`第一个then  ` + valve);
+            return valve * 2;
+        }).then((valve) => {
+            console.log(`第二个then  ` + valve);
+            return valve + 10;
+        }).then((valve) => console.log(`第三个zhen  `+ valve
+        )).then((valve) => {
+            console.log(`第四个zhen  ` + valve);
+            return Promise.resolve('resolve');
+        }).then((valve) => {
+            console.log(`第五个then  ` + valve);  
+            return Promise.reject('reject');
+        }).then((valve) => {
+            console.log(`resolve  ` + valve);  
+        },err => console.log(`reject  ` + err))
+    </script>
+</body>
+
+</html>
