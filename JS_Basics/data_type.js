@@ -75,7 +75,7 @@ console.log(typeof(null));
 //判断对象类型更常用instanceof操作符   
 let arr1 = [1,2] instanceof Array === true;  
 console.log(arr1);   
-let OBj = new Object() instanceof Array === true 
+let OBj = new Object() instanceof Array === true; 
 console.log(OBj);  
 
 

@@ -30,7 +30,7 @@ console.log(re);
  * @returns "美女"
  */
 function test2(str) {   
-  var re1 = str.replace(/.pdf/i,'' )  
+  var re1 = str.replace(/.pdf/i,'text' )  
   return re1
 };
 var ptp = test2("语文课本.pdf")   
