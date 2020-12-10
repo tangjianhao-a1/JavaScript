@@ -23,11 +23,20 @@ console.log(Obj.y);
 //console.log('x' in window);   浏览器打印可以考虑 node.js无法识别window   
 
 //运算符instanceof,typeof      
-//instanceof是判断对象的类型基于原型链去判断，typeof返回的是一个字符串
+//instanceof是判断对象的类型基于原型链去判断，typeof返回的是一个字符串，常用于原始类型或者函数对象  
+//判断一个变量是不是原始类型或者是不是函数的话typeof是比较合适的
 let OBJ = {} instanceof Object  
 console.log(OBJ);  
 
-console.log(typeof 100 === 'number');
+console.log(typeof 100 === 'number');  
+
+//运算符new    
+function Foo(){}  //创建一个空函数Foo     
+Foo.prototype.x = 1;   
+let obj = new Foo();  //使用new运算符创建新的对象obj  
+
+
+
 
 
 
