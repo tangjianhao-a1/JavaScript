@@ -78,5 +78,15 @@ console.log(arr1);
 let OBj = new Object() instanceof Array === true; 
 console.log(OBj);  
 
+//Object.prototype.toString   
+let n = Object.prototype.toString.apply(null)// === '[object Null]'
+console.log(n);    
 
+let arr2 = Object.prototype.toString.apply([]);   
+console.log(arr2);
 
+let f = Object.prototype.toString.apply(function(){});  
+console.log(f);
+
+let un = Object.prototype.toString.apply(undefined);   
+console.log(un);
