@@ -94,21 +94,105 @@ console.log(a);
         case 1:
             console.log('执行了1');
             break;
-            case 2:  
-            console.log('执行了2');   
-            case 3:  
-            console.log('执行了3');  
-            case 4:  
-            console.log('执行了4');  
+        case 2:
+            console.log('执行了2');
+        case 3:
+            console.log('执行了3');
+        case 4:
+            console.log('执行了4');
             break;
-            default:  
+        default:
             console.log('都不满足');
     }//使用switch语句后面切记加break关键字，
-}    
+}
 
+//循环语句就是能重复执行相同操作的语句，与if语句一样，循环语句也分while语句和for语句    
+{
+    let a = 0;
+    while (a <= 5) {
+        console.log('执行' + a + '次');
+        a++;
+    }
+}
 
+{
+    let b = 0;
+    while (b <= 5) {
+        console.log('执' + b + '行');
+        b++;
+    }
+}
 
+{
+    let num = 0;
+    do {
+        console.log('执行' + num + '次');
+        num++;
+    } while (num <= 5);
+}
 
+{
+    let num2 = 0;
+    do {
+        console.log('执行le' + num2 + '次');
+        num2++
+    } while (num2 <= 5)
+}
 
+{
+    let a = 5;
+    switch (a) {
+        case 1:
+            console.log('执行一');
+            break;
+        case 2:
+            console.log('执行二');
+            break;
+        case 3:
+            console.log('执行三');
+            break;
+        //default  default  default default default default default default  default  
+        default:
+            console.log('错误');
+    }
+}     
+
+{
+    let a = 0;   
+    while(a < 5) {
+        console.log(a);  
+        a++;  
+    }
+}
+
+{
+    let a = 0;
+    do {
+        console.log(a);  
+        a++;
+    } while(a < 5);
+}  
+let wec = 5;
+{
+    let q = 1;  
+    {
+        let o = 2;
+        console.log('q',q);
+    }
+    {  
+        let v = 3;
+        console.log('wec',wec);
+        {
+            console.log('v',v); 
+            {
+                console.log(v);  
+                var arr = 100;  
+                console.log();
+            }
+        }
+    }
+   console.log('arr',arr);
+   console.log('v',v);
+}
 
 
