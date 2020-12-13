@@ -397,4 +397,15 @@ let wec = 5;
    } finally {
        console.log('执行3');
    }
+}    
+
+{
+    for(let i = 0; i < 3; i++) {
+        console.log(i);  
+        for(let j = 7; j < 10; j++) {
+            break;
+            console.log(j);
+        }
+    }
 }
+
