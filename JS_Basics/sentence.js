@@ -155,44 +155,246 @@ console.log(a);
         default:
             console.log('错误');
     }
-}     
+}
 
 {
-    let a = 0;   
-    while(a < 5) {
-        console.log(a);  
-        a++;  
+    let a = 0;
+    while (a < 5) {
+        console.log(a);
+        a++;
     }
 }
 
 {
     let a = 0;
     do {
-        console.log(a);  
+        console.log(a);
         a++;
-    } while(a < 5);
-}  
+    } while (a < 5);
+}
 let wec = 5;
 {
-    let q = 1;  
+    let q = 1;
     {
         let o = 2;
-        console.log('q',q);
+        console.log('q', q);
     }
-    {  
+    {
         let v = 3;
-        console.log('wec',wec);
+        console.log('wec', wec);
         {
-            console.log('v',v); 
+            console.log('v', v);
             {
-                console.log(v);  
-                var arr = 100;  
+                console.log(v);
+                var arr = 100;
                 console.log();
             }
         }
     }
-   console.log('arr',arr);
-   console.log('v',v);
+    console.log('arr', arr);
+
 }
 
+{
+    for (let a = 1, b = 1, c = 1; a + b + c < 200; a++, b += 3, c *= 2) {
+        console.log('a=' + a + ',b =' + b + ',c=' + c);
+    }
+}
 
+{
+    let obj = new Object();
+    obj.x = '张三';
+    obj.y = '李四';
+    obj.z = '王二';
+    obj.c = '麻子';
+    obj.del = '不存在';
+    Object.defineProperty(obj, 'del', {
+        configurable: true,
+        value: '再见'
+    });
+    delete obj.del;
+    console.log(obj);
+    for (let k in obj) {
+        console.log(obj.k);
+    }
+}
+
+{
+    let age = 20;
+    if (age <= 10) {
+        console.log('86');
+    } else if (age <= 20) {
+        console.log('60');
+    } else if (age <= 20) {
+        console.log('20');
+    } else {
+        console.log('都不是');
+    }
+}
+
+{
+    for (let i = 0; i < 31; i++) {
+        if (i == 10) {
+            console.log('今年第' + i + '年');
+        } else if (i == 20) {
+            console.log('20今年第' + i + '年');
+        } else if (i <= 21) {
+            console.log('今年第' + i + '年');
+        } else {
+            console.log(i);
+        }
+    }
+}
+
+{
+    var obj = {
+        name: '张三',
+        age: 18,
+        like: '跑步'
+    }
+    for (var k in obj) {
+        console.log(k);
+    }
+}
+
+{
+    try {
+        try {
+            
+            throw 'text';
+        }
+        finally {
+            console.log('finally');
+        }
+    }
+    catch (ex) {
+        console.log(ex);
+    }
+} 
+
+{
+    try {
+        throw 'one'
+    } catch(a) {
+        console.log('a');
+    } finally {
+        console.log('必须执行');
+    }
+}  
+
+{
+    try {
+        throw 'two';
+    }
+    catch(a) {
+        console.log(a);
+    }
+    finally {
+        console.log('不管有没有异常都执行');
+    }
+} 
+
+{
+    try {
+        try {
+            throw '123'
+        }
+        catch(a) {
+            console.log(a);  
+            throw a
+        }
+        finally {
+            console.log('执行');
+        }
+    } catch(a) {
+        console.log('外',a);
+    } finally {
+        console.log('最后执行');
+    }
+}  
+
+{
+    try {
+        throw 123 //抛出异常
+    } catch(a) {
+        console.log(a);//接收异常
+    } finally {
+        console.log('有没有异常都执行的码');
+    }
+}   
+
+{
+    let a = 25;  
+    if(a < 10) {
+        console.log('执行一');
+    } else if(a < 20) {
+        console.log('执行2');
+    } else if(a < 30) {
+        console.log('执行3');
+    } else if(a < 40) {
+        console.log('执行4');
+    } else {
+        console.log('以上都没有');
+    }
+}   
+
+{
+    let a = 2;  
+    switch(a) {
+        case 1:  
+        console.log('1');  
+       
+        case 2:  
+        console.log('2');  
+        
+        case 3:  
+        console.log('3'); 
+        break; 
+        case 4:  
+        console.log('4');   
+        break;   
+        default:
+            console.log('都没有');
+    
+    }
+}    
+
+{
+    let b = 1;  
+    while(b < 5) {
+        console.log(b);  
+        b++;
+    }
+}  
+
+{
+    let a = 1;   
+    do {
+        console.log(a);
+        a++;
+    } while(a < 5)
+}  
+
+{
+    try{
+        throw 'one'  //抛出问题
+    } catch(e) {  //catch //捕获异常并接受
+        console.log(e);
+    } finally { //不管有没有异常都会执行的代码块
+        console.log('都会执行');
+    }
+}  
+
+{
+   try {
+       try {
+           throw 'one'
+       } finally {
+           console.log('执行1');
+       }
+   } catch(e) {
+       console.log('执行2',e);
+   } finally {
+       console.log('执行3');
+   }
+}
