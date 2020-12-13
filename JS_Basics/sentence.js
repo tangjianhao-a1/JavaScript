@@ -412,3 +412,10 @@ let wec = 5;
     //给break加标记可以跳转到指定的行
 }
 
+{
+    console.log(typeof toString(12));//数字型转字符创型    
+    console.log(parseInt('3.60')); //parseInt把字符串转化为数字整数型； 
+    console.log(parseFloat('3.60'));//parseFloat把字符串转化为浮点数；
+}   
+
+
