@@ -400,12 +400,15 @@ let wec = 5;
 }    
 
 {
-    for(let i = 0; i < 3; i++) {
+  x:  for(let i = 0; i < 5; i++) {
         console.log(i);  
-        for(let j = 7; j < 10; j++) {
-            break;
-            console.log(j);
+        for(let j = 10; j < 14; j++) {
+           if(i == 3) {
+               break x;
+           }
+           console.log(j);
         }
     }
+    //给break加标记可以跳转到指定的行
 }
 
