@@ -259,3 +259,81 @@
    delete obj.x;  
    console.log(obj);
 }  
+
+{
+    let obj = {a: 1, b: 2, c: 3};    
+    Object.defineProperties(obj,{
+        x:{value:4,enumerable:true, writable:true,configurable:true},   
+        y:{value:5,enumerable:true,writable:true},
+        p:{value:6,}
+    })  
+    console.log(obj);   
+    console.log(Object.getOwnPropertyDescriptor(obj,'a'));  
+    console.log(Object.getOwnPropertyDescriptor(obj,'y'));  
+    console.log(Object.getOwnPropertyDescriptor(obj,'p'));   
+    let re = Object.create(obj);   
+    re.h = 11;  
+    console.log(re);   
+    re.p = 5;  
+    console.log(re.p);  
+    Object.defineProperty(re,'p',{
+        writable: true,
+    })  
+   re.p = 10  
+   console.log(re.p);
+}
+
+{
+    let obj = {x: 1, y: 2};   
+    console.log( Object.isExtensible(obj));//查看这个对象属性是否能被添加  
+    Object.preventExtensions(obj);  //设置这个对象不能被添加属性
+    console.log(Object.isExtensible(obj));  
+    obj.x = 2;  
+    console.log(obj);
+    obj.z = 5;  
+    console.log(Object.getOwnPropertyDescriptor(obj,'x'));    
+    Object.seal(obj);  //将所有属性的属性标签configurable设置为false
+    console.log(Object.getOwnPropertyDescriptor(obj,'x'));  
+    console.log(Object.getOwnPropertyDescriptor(obj,'y'));  
+    console.log(Object.isSealed(obj));  
+    Object.freeze(obj);    
+    console.log(Object.getOwnPropertyDescriptor(obj,'x'));  
+    console.log(Object.isFrozen(obj));
+
+}
+
+{
+    let obj = {
+        x: 1,  
+        y: 2,  
+        o: {
+            o1: 1,  
+            o2: 2,  
+            toJSON:function() {
+                return this.o1 + this.o2;
+            }
+        }
+    }
+   console.log(JSON.stringify(obj));
+}  
+
+{
+    let obj = {x: 1, y: 5, z:[1,2,34,9], name: 'tom'}  
+    let a = JSON.stringify(obj);  
+    console.log(a);  
+    obj = JSON.parse('{"x":1}');  
+    console.log(obj.x);  
+
+}  
+
+{
+    let obj = {x: 1, y: 2};  
+    obj.toString = function() {
+        return this.x + this.y
+    }
+    console.log('tom' + obj);  
+    console.log(+obj);  
+    obj.valueOf = function() {return this.x + this.y + 100};     
+    console.log(+obj);
+}
+
