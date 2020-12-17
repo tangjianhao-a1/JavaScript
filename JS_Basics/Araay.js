@@ -145,6 +145,25 @@
 }
 
 {
-   
-}
+    var str = '';  
+    for(var i = 1; i <= 8; i++) {
+        for(var j = i; j <= 8; j++) {
+            str = str + '☆';
+        }
+        str = str + '\n';
+    }
+}  
+console.log(str);
+
+{
+   var st = '';   
+   for(var i = 1; i <= 9; i++) {
+       for(var j = 1; j <= i; j++) {
+           st += j + '×' + i + '＝' + j*i + '\t';
+       }
+       st += '\n'
+   }
+   console.log(st);
+}  
+
 
