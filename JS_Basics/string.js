@@ -128,5 +128,12 @@
            key = k;
        }
    }
-   console.log('出现字符最多的为:' + key,'出现次数为：'+ maxs);
+   console.log('出现字符最多的为:' + key,'出现次数为：'+ maxs);  
 }  
+
+{
+    let str = '       asd'  
+    console.log(str);
+    let str1 = str.trim();
+    console.log(str1);
+}

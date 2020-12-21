@@ -335,5 +335,13 @@
     console.log(+obj);  
     obj.valueOf = function() {return this.x + this.y + 100};     
     console.log(+obj);
-}
+} 
+
+{  //Object.keys返回一个由对象名组成的新数组；
+    let o = {a: 1,b: 2,c: 3,d: 4}  
+   let arr = Object.keys(o);  
+   console.log(arr);
+}  
+
+
 
