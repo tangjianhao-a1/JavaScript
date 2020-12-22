@@ -401,9 +401,366 @@ console.log(typeof Object);
     let ldh = new Son('刘德华',18,100);  
     console.log(ldh);
     ldh.sing();
+}  
+
+{//闭包函数 指有权访问另一个函数作用域中变量的函数  
+    //闭包的作用：延伸了变量的作用范围
+   function fun() {
+       let num = 10;  
+       return function() {
+           console.log(num);
+       }
+   }
+   let f = fun();  
+   f();
+}  
+
+{
+    let re = (function(){
+        let num = 10;  
+        let numm = 20;  
+        return {
+            sum: function() {
+                console.log(num+numm);
+            },
+            chen: function() {
+                console.log(num * numm);
+            }
+        }
+    })();
+    re.sum();  
+    re.chen();
+}  
+
+{
+    //递归函数自己调用自己  
+    let num = 1;
+    function fn() {
+        console.log('执行六次');  
+        if(num > 6) {
+            return
+        }
+        num++;
+        fn();
+    }
+    fn();
 }
 
+{
+    function fun(n) {
+        if(n == 1) {
+            return 1
+        }
+        return n * fun(n - 1);
+    }  
+    console.log(fun(3));
+}  
 
+{
+    //递归遍历数据  
+    let data = [{
+        id: 1,
+        name: '家电',
+        goods: [{
+            id: 11,
+            gname: '冰箱'
+        },{
+            id: 12,
+            gname: '洗衣机',
+            goods: [{
+                id: 102,
+                gname: '海尔'
+            },{
+                id: 103,
+                gname: '美的'
+            }]
+        }]
+    },{
+        id: 2,
+        name: '服饰'
+    }];  
+
+    function getId(json,id) {
+        let o = {};
+        json.forEach(item => {
+            if(item.id == id) {
+                o = item;
+                return item
+            } else if(item.goods && item.goods.length > 0) {
+                o = getId(item.goods,id);
+            }
+        })
+        return o;
+    }
+    console.log(getId(data,1));
+    console.log(getId(data,12));  
+    console.log(getId(data,103));
+
+  
+}
+
+{
+    let data = [{
+        id: 1,
+        name: '家电',
+        goods: [{
+            id: 11,
+            gname: '冰箱'
+        },{
+            id: 12,
+            gname: '洗衣机',
+            goods: [{
+                id: 102,
+                gname: '海尔'
+            },{
+                id: 103,
+                gname: '美的',
+                goods: [{
+                    id: 1003,
+                    gname:'贵阳',
+                },{
+                    id: 1004,  
+                    gname: '织金',
+                }]
+            }]
+        }]
+    },{
+        id: 2,
+        name: '服饰'
+    }];  
+    function getId(body,id) {
+        let o = {};  
+        for(let i = 0; i < body.length; i++) {
+            if(body[i].id == id) {
+                o = body[i];  
+                return body[i]
+            } else if(body[i].goods && body[i].goods.length !== 0) {
+                o = getId(body[i].goods,id)
+            }
+        }
+        return o
+    }
+    console.log(getId(data,));
+}  
+
+{
+    let data = [{
+        id: 1,
+        name: '家电',
+        goods: [{
+            id: 11,
+            gname: '冰箱'
+        },{
+            id: 12,
+            gname: '洗衣机',
+            goods: [{
+                id: 102,
+                gname: '海尔'
+            },{
+                id: 103,
+                gname: '美的',
+                goods: [{
+                    id: 1003,
+                    gname:'贵阳',
+                },{
+                    id: 1004,  
+                    gname: '织金',
+                }]
+            }]
+        }]
+    },{
+        id: 2,
+        name: '服饰'
+    }];   
+    function getId(arr,id) {
+        let o = {};
+        arr.forEach(item => {
+            if(item.id == id) {
+                o = item;
+                return item
+            } else if(item.goods && item.goods.length > 0) {
+                o = getId(item.goods,id)
+            }
+        })
+        return o
+    };
+    console.log(getId(data,1003));
+}  
+
+{
+    let obj = {
+        id: 1,
+        name: 'tom',
+        msg: {
+            age: 18,
+        }
+    }  
+    let o = {};  
+    for(k in obj) {
+        //o[k] o添加遍历的属性，Obj[k]做赋值操作
+        o[k] = obj[k]
+    }  
+    console.log(o);  
+    o.msg.age = 20;    
+    console.log(obj);
+}
+
+{
+    let obj = {
+        id: 1,
+        name: 'tom',
+        msg: {
+            age: 18,
+        },
+        color: ['red','grren'],
+    }  
+    let o = {};  
+    function copy(newobj,oldobj) {
+        for(let k in oldobj) {
+            let item = oldobj[k];  
+            if(item instanceof Array) {
+                newobj[k] = [];  
+                copy(newobj[k],item)
+            } else if(item instanceof Object) {
+                newobj[k] = {};
+                copy(newobj[k],item);
+            } else {
+                newobj[k] = item;
+            }
+        }
+    }
+    copy(o,obj);  
+    console.log(o);  
+    o.msg.age = 20;  
+    console.log(o);  
+    console.log(obj);
+}  
+
+{
+    let obj = {
+        name: '张三',  
+        age: 18,  
+        son: {
+            name: '张三儿子',  
+            age: 10,  
+            grandson: {
+                name: '张三孙子',
+                age: 1,
+            },
+            arr:[1,2,3,4,5,6]
+        }
+    }
+    let o = {};   
+    function copy(newobj,oldobj) {
+        for(k in oldobj) {
+            let item = oldobj[k];  
+           if(item instanceof Array) {
+               newobj[k] = [];
+               copy(newobj[k],item)
+           } else if(item instanceof Object) {
+               newobj[k] = {};  
+               copy(newobj[k],item)
+           }
+           else {
+               newobj[k] = item;
+           }
+        }
+    }
+    copy(o,obj)  
+    console.log(o);  
+    o.son.age = 20;  
+    console.log(o);  
+    
+}
+
+{
+    Array.prototype.sum = function() {
+        let sum = 0;  
+        for(let i = 0; i < this.length; i++) {
+            sum += this[i]
+        }
+        return sum
+    }  
+    let arr = [1,2,3];  
+    console.log(arr.sum());
+}  
+
+{
+    function Foo(uname,age) {
+        this.uname = uname;
+        this.age = age;
+    }
+    Foo.prototype.num = function() {
+        let sum = 0;  
+        for(let i = 0; i < arguments.length; i++) {
+            sum += arguments[i]
+        }
+        return sum
+    }
+
+    Foo.prototype.sort = function(arr) {
+        for(let i = 0; i < arr.length; i++) {
+            for(let j = 0; j < arr.length - i; j++) {
+                if(arr[j] > arr[j + 1]) {
+                    let tm = arr[j];  
+                    arr[j] = arr[j + 1];  
+                    arr[j + i] = tm
+                }
+            }
+        }
+        return arr
+    }
+
+    Foo.prototype.severse = function(arr) {
+        let newArr = [];   
+        for(let i = arr.length - 1; i >= 0; i--) {
+            newArr.push(arr[i])
+        }
+        return newArr
+    }
+
+    Foo.prototype.max = function() {
+        let max = 0;  
+        for(let i = 0; i < arguments.length; i++) {
+            if(arguments[i] > max) {
+                max = arguments[i]
+            }
+        }
+        return max
+    }
+
+    Foo.prototype.xhs = function() {
+        let arr = [];
+        for(let i = 100; i < 1000;i++) {
+            let a = parseInt(i / 100);  
+            let b = parseInt(i / 10 % 10);
+            let c = i % 10  
+            if(a*a*a + b*b*b + c*c*c === i) {
+                arr.push(i)
+            }
+        }
+        return arr
+    }
+    Foo.prototype.nine = function(num) {
+        let str = '';
+        for(let i = 1; i <= num; i++) {
+            for( let j = 1; j <= i; j++) {
+                str += j + '×' + i + '＝' + j*i + '\t'
+            }
+            str += '\n'
+        }
+        return str
+    }
+    let ldh = new Foo('刘德华',18);  
+    console.log(ldh);
+    console.log(ldh.num(1,2,3));  
+    console.log(ldh.sort([2,1,3]));  
+    console.log(ldh.severse([1,2,3]));  
+    console.log(ldh.max(5,4,6,100,23));  
+    console.log(ldh.xhs());    
+    console.log(ldh.nine(9));
+
+}
 
 
 
