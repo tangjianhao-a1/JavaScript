@@ -43,7 +43,7 @@ console.log(ldh);
         this.age = age;
     };  
     Foo.prototype = {
-        //constructor: Foo,
+        constructor: Foo,
         sing: function() {
             console.log('会唱歌');
         },
@@ -53,6 +53,7 @@ console.log(ldh);
     }
     let tjh = new Foo('唐剑豪',18);  
     console.log(Foo.prototype);  
+    console.log(tjh);
 
 }   
 
@@ -68,6 +69,49 @@ console.log(ldh);
    console.log(arr.sum());
 }  
 
+{
+    //继承  
+    function Father(uname,age) {
+        this.uname = uname;  
+        this.age = age;  
+
+    }
+    Father.prototype.sum = function() {
+        let sum = 0;  
+        for(let i = 0; i < arguments.length; i++) {
+            sum += arguments[i]
+        }
+        return sum
+    }
+    Son.prototype = new Father;
+    Son.prototype.constructor = Son;  
+
+    function Son(uname,age,likes) {
+        this.uname = uname;  
+        this.age = age;
+        this.likes = likes;
+    }
+    Son.prototype.max = function() {
+        let max = 0;  
+        for(let i = 0; i < arguments.length; i++) {
+            if(arguments[i] > max) {
+                max = arguments[i]
+            }
+        }
+        return max
+    }
+    let ldh = new Father('刘德华',18);   
+    let myf = new Son('没严防',65,'唱歌')  
+   console.log(myf.sum(1,2,3));
+    console.log(myf.max(1,2,65,23));  
+    //console.log(ldh.max(4,2,5,1));
+
+    //对象实例原型指向他构造器的原型对象prototype
+    console.log(ldh.__proto__=== Father.prototype);  
+    console.log(Father.prototype.__proto__ === Object.prototype);  
+    console.log(Father.prototype.constructor === Father);
+    console.log(ldh.__proto__.constructor === Father);
+}
 
 
 
