@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+<script>
+    //^ $ 边界符  
+    let rg = /abc/;  
+   console.log(rg.test('abcde')); //只要包含有abc这个字符串的都是true  
+   console.log('--------------------------------------------------------------------');  
+   let reg = /^abc/;  
+   console.log(reg.test('abcd')); // true  
+   console.log(reg.test('acbd')); //false  
+   let reg1 = /^abc$/;
+   console.log(reg1.test('abc')); //true
+   console.log(reg1.test('abcd')); //fasle  
+
+   //let re = /abc/; 只要包含abc就可以  
+   //字符类: [] 表示有一系列字符可供选择，只要匹配其中一个就可以了  
+   let rg1 = /[abc]/;//只要包含a 或者 b 或者 c 其中一个都返回true  
+   console.log(rg1.test('afasfa'));  //true
+
+   let rg2 = /^[abc]$/;//三选一。只有a或者是b 或者是c 这三个字母才返回true  
+   console.log(rg2.test('aa'));  //fasle  
+   console.log('---------------------------------------------------------------------');  
+   
+   //[-]方括号内部范围符-  
+   let rg3 = /^[a-z]$/    // 26个英文字母任何一个字母返回  true  
+   console.log(rg3.test('c'));  //true  
+
+   //字符组合  
+   let reg4 = /^[a-zA-Z0-9_-]$/;//26个英文字母大小写,0-9数字，_ -任何一个都为true; 多选一，只能输入一个。  
+   let reg5 = /^[^a-zA-Z0-9_-]$/;//方括号里加^表示取反，出现括号里为false;
+
+</script>
+
+</html>

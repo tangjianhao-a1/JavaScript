@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //量词符：用来设定某个模式出现的次数  
+    //let reg = /^a$/;
+
+    // * 相当于 >= 0 可以出现0次或很多次    
+    let reg = /^a*$/  
+    console.log(reg.test(''));               //true
+    console.log(reg.test('aaaaaaaaaaaa'));  // true
+
+    // + 相当于 >= 可以出现1次或者很多次  
+    let reg1 = /^a+$/  
+    console.log(reg1.test(''));               //false
+    console.log(reg1.test('aaaaaaaaaaaa'));  // true
+
+    // ？相当于 1 || 0    
+    let reg2 = /^a?$/  
+    console.log(reg2.test(''));            // true
+    console.log(reg2.test('a'));          //true
+    console.log(reg2.test('aaaaaaaaaaaa'));//false
+
+    //{3 } 就是重复3次  
+    let reg3 = /^a{3}$/  
+    console.log(reg3.test(''));            // false
+    console.log(reg3.test('a'));          //false
+    console.log(reg3.test('aaa'))          // true
+
+    //{3，} 大于等于3  
+    let reg4 = /^a{3,}$/  
+    console.log(reg4.test(''));            // false
+    console.log(reg4.test('a'));          //false
+    console.log(reg4.test('aaa'))         //true
+
+    //{3, 16} 大于3 并且  小于6 
+    let reg5 = /^a{3,6}$/  
+    console.log(reg5.test(''));            // false
+    console.log(reg5.test('a'));          //false
+    console.log(reg5.test('aaaa'))        //false   
+
+    let reg6 = /^[a-zA-Z0-9_-]{6,16}$/;//这个模式用户只能输入英文字母 数字  下划线 短横线但是有边界符和[],这就限定只能多选一  
+    console.log(reg6.test('acbabc-123'));
+    
+</script>
+</html>
