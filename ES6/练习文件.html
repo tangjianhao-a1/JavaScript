@@ -9,34 +9,78 @@
 
 <body>
   <script>
-    function old() {
-      return new Promise(a => {
-        console.log('执行1');
-        a('ok');
-      }).then(item => {
-        console.log('执行2' + item);
-        return '给我出来'
-      })
-    }
-    function arr() {
-      let bod = new Promise(b => {
-        b([1, 2, 3, 4, 5]);
-      }).then(item => {
-        console.log('1' + item);
-        return '你会出来的';
-      })
-      return bod;
-    }
-    let abd = new Promise(c => {
-      console.log('执行a');
-      c('怎么搞的');
-    }).then(item => {console.log(item);
-    return '猫咪'});  
-    abd.then(item => console.log(item));
-    arr().then(item => console.log('arr' + item));
-    console.log('外面1');
-    old().then(item => console.log('执行3' + item));
-    console.log('外面2');
+    {
+      //ES6之前的继承
+      function Father(uname, age) {
+        this.uname = uname;
+        this.age = age;
+        this.c = function () { return this.a + this.b }
+      }
+      Son.prototype = new Father;
+      Son.prototype.constructor = Son;
+      function Son(a, b) {
+        this.a = a;
+        this.b = b;
+        Father.call(this, a, b)
+      }
+      let ldh = new Son(5, 18);
+      console.log(ldh.uname)
+
+      //ES6的类继承  
+      class One {
+        constructor(a, b) {
+          this.a = a;
+          this.b = b;
+        }
+        sum() { return this.a + this.b }
+      }
+      // One.prototype.sum = function() {return this.a + this.b + this.e}
+      class Two extends One {
+        constructor(c, d, e) {
+          super(c, d)
+          this.e = e
+        }
+      }
+      Two.prototype.c = function () { return this.a * this.b }
+      let tjh = new Two(5, 5, 5);
+      console.log(tjh.sum());
+      console.log(tjh.c());
+      let myf = new One(3, 3, 3);
+      console.log(myf.sum());
+      //console.log(myf.c());myf是One构造器的实例，而Two继承于One，One上并没有C方法，无法继承
+    };
+
+    {
+      console.log(one);
+      var one = 1;
+      // console.log(two);//报错 let 关键字不会预解析，不会变量提升
+      let two = 2;
+      function test() {
+        //console.log('one',one);  
+        //外面的var one 为全局变量  
+        let one = 1;//let会和这个作用域里的one变量绑定，出现暂时性死区
+      }
+      test();
+
+      {
+        let one1 = 1;
+        {
+          console.log(one1);//块级作用域里层内访问外层的let变量
+        }
+      };
+       //console.log(a);
+      const a = 1;  
+      //a = 2;//报错，const关键字声明的常量不可改，不会提升    
+      const b = [1,2,3,4];  
+      b[1] = 100;  
+      console.log(b);  
+      const c = [4,5,6,7];  
+      //c = b;  //报错，能修改复杂数据类型元素，不可改地址
+}  
+
+{
+  
+}
   </script>
 </body>
 

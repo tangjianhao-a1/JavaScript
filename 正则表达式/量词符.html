@@ -47,7 +47,15 @@
     console.log(reg5.test('aaaa'))        //false   
 
     let reg6 = /^[a-zA-Z0-9_-]{6,16}$/;//这个模式用户只能输入英文字母 数字  下划线 短横线但是有边界符和[],这就限定只能多选一  
-    console.log(reg6.test('acbabc-123'));
+    console.log(reg6.test('acbabc-123'));  
+
+    //全国座机号010-12345678   0851-1234567  
+    let num = /^\d{3}-\d{8}|\d{4}-\d{7}$/  
+    console.log('num',num.test('0857-3714263'));  
+
+    let str = '感觉人生到达了高潮，感觉人生到达了巅峰,感觉';  
+    let re = str.replace(/感觉|了/g,'**');
+    console.log(re);
     
 </script>
 </html>
