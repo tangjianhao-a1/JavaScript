@@ -69,4 +69,7 @@ function test4(obj1, obj2) {
   }  
   var re4 = test4({"a": 1, "b": 2}, {"c": 3, "d": 4})  
   console.log(re4);
-   
+ function random(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}    
+console.log(1,10);

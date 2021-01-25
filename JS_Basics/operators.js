@@ -87,7 +87,9 @@ Object.defineProperty(oobj,'x',{
     value: 5
 })  
 delete oobj.x
-console.log(oobj);
+console.log(oobj);     
+
+
 
 
 

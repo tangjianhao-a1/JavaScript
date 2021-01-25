@@ -1,4 +1,4 @@
-/* {   //同步api
+ {   //同步api
     function test(a, b) {
         return a + b
     }
@@ -76,7 +76,7 @@ test(function (data) {
         return `二+${item}`
     }).then(item => console.log(item))
 
-} */
+} 
 
 {
     console.log('执行1');
@@ -119,7 +119,8 @@ test(function (data) {
     }).then(v => console.log(v))  
     console.log('执行6');
 
-//验证JS执行顺序，同步 异步 回调函数
+//验证JS执行顺序，同步 异步 回调函数  
+//先执行同步队列,回调，异步 
 }
 
 

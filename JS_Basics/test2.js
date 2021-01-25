@@ -304,6 +304,18 @@ console.log(ldh);
         }
     }
     console.log('出现次数最多的为：' + strs + '\t' + '次数为：' + max);
+}  
+
+{
+    let arr = [];
+    for(let i = 0; i <= 5; i++) {
+         arr[i] = new Array;  
+        for(let j = 0; j <= 5; j++) {
+            arr[i][j] = j
+        }
+    }  
+    arr[1][4] = 100;
+    console.log(arr);
 }
 
 

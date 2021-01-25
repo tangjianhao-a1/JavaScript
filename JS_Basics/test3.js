@@ -362,6 +362,15 @@
 
    }) 
  
-}  
+}    
+
+{
+    let a = [1,2,3,4]; 
+    let b = [4,5,6];  
+    a = b;  
+    console.log(a);  
+    a[0] = 'a';  
+    console.log(b);
+}
 
 
